@@ -65,5 +65,24 @@ post '/eyecolor' do
 	age = params[:age]
 	hair = params[:hair]
 	eye = params[:eye]
-	"#{f_name} #{l_name} #{age} #{hair} #{eye}"
+	redirect '/fav_food?firstname=' + f_name + "&lastname=" + l_name + "&age=" + age + "&hair=" + hair + "&eye=" + eye
+end
+
+get "/fav_food" do
+	f_name = params[:firstname]
+	l_name = params[:lastname]
+	age = params[:age]
+	hair = params[:hair]
+	eye = params[:eye]
+	erb :fav_food, locals:{f_name: f_name, l_name: l_name, age: age, hair: hair, eye: eye}
+end
+
+post "/food" do
+	f_name = params[:f_name]
+	l_name = params[:l_name]
+	age = params[:age]
+	hair = params[:hair]
+	eye = params[:eye]
+	food = params[:food]
+	"#{f_name} #{l_name} #{age} #{hair} #{eye} #{food}"
 end
