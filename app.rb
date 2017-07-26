@@ -84,5 +84,26 @@ post "/food" do
 	hair = params[:hair]
 	eye = params[:eye]
 	food = params[:food]
-	"#{f_name} #{l_name} #{age} #{hair} #{eye} #{food}"
+	redirect '/fav_drink?firstname=' + f_name + "&lastname=" + l_name + "&age=" + age + "&hair=" + hair + "&eye=" + eye + "&food=" + food	
+end
+
+get '/fav_drink' do
+	f_name = params[:firstname]
+	l_name = params[:lastname]
+	age = params[:age]
+	hair = params[:hair]
+	eye = params[:eye]
+	food = params[:food]
+	erb :fav_drink, locals:{f_name: f_name, l_name: l_name, age: age, hair: hair, eye: eye, food: food}
+end	
+
+post '/drink' do
+	f_name = params[:f_name]
+	l_name = params[:l_name]
+	age = params[:age]
+	hair = params[:hair]
+	eye = params[:eye]
+	food = params[:food]
+	drink = params[:drink]
+	"#{f_name} #{l_name} #{age} #{hair} #{eye} #{food} #{drink}"
 end
