@@ -105,5 +105,47 @@ post '/drink' do
 	eye = params[:eye]
 	food = params[:food]
 	drink = params[:drink]
-	"#{f_name} #{l_name} #{age} #{hair} #{eye} #{food} #{drink}"
+	redirect '/fav_number?firstname=' + f_name + "&lastname=" + l_name + "&age=" + age + "&hair=" + hair + "&eye=" + eye + "&food=" + food + "&drink=" + drink	
 end
+
+get '/fav_number' do
+	f_name = params[:firstname]
+	l_name = params[:lastname]
+	age = params[:age]
+	hair = params[:hair]
+	eye = params[:eye]
+	food = params[:food]
+	drink = params[:drink]
+	erb :fav_number, locals:{f_name: f_name, l_name: l_name, age: age, hair: hair, eye: eye, food: food, drink: drink}
+end
+
+post '/number' do
+	f_name = params[:f_name]
+	l_name = params[:l_name]
+	age = params[:age]
+	hair = params[:hair]
+	eye = params[:eye]
+	food = params[:food]
+	drink = params[:drink]
+	num1 = params[:num1]
+	num2 = params[:num2]
+	num3 = params[:num3]
+	#"#{f_name} #{l_name} #{age} #{hair} #{eye} #{food} #{drink} #{num1} #{num2} #{num3}"
+	redirect '/results?firstname=' + f_name + "&lastname=" + l_name + "&age=" + age + "&hair=" + hair + "&eye=" + eye + "&food=" + food + "&drink=" + drink + "&num1=" + num1 + "&num2=" + num2 + "&num3=" + num3	
+end
+
+get '/results' do
+	f_name = params[:firstname]
+	l_name = params[:lastname]
+	age = params[:age]
+	hair = params[:hair]
+	eye = params[:eye]
+	food = params[:food]
+	drink = params[:drink]
+	num1 = params[:num1]
+	num2 = params[:num2]
+	num3 = params[:num3]
+	total = num1.to_i + num2.to_i + num3.to_i
+	erb :results, locals:{f_name: f_name, l_name: l_name, age: age, hair: hair, eye: eye, food: food, drink: drink, num1: num1, num2: num2, num3: num3, total: total}
+end
+
