@@ -2,6 +2,49 @@ require "sinatra"
 enable :sessions
 
 get '/' do
+	message = params[:message]
+	if message == "invalid username or password"
+	erb :login, locals:{message:message}
+	else
+		blank = "please enter your username and password"
+		erb :login, locals:{message:blank}
+	end
+end
+
+post '/login' do
+	username = params[:username]
+	password = params[:password]
+	message = "invalid username or password"
+	if username == "scstew" && password == "12345"
+			redirect '/names'
+	else 
+			redirect '/?message=' + message
+	end
+end
+# post '/login' do
+# 	username = params[:username]
+# 	password = params[:password]
+# 		if username == "scstew" && password == "12345"
+# 			redirect '/names'
+# 		else 
+# 			redirect '/f_login'
+# 		end
+# end
+
+# get '/f_login' do
+# 	erb :f_login
+# end
+
+# post '/fail_login' do
+# 	username = params[:username]
+# 	password = params[:password]
+# 		if username == "scstew" && password == "12345"
+# 			redirect '/names'
+# 		else
+# 			redirect '/f_login'
+# 		end	
+# end
+get '/names' do
 	erb :names
 end
 
