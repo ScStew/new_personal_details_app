@@ -60,5 +60,10 @@ get '/eye_color' do
 end 
 
 post '/eyecolor' do 
-
-	end
+	f_name = params[:f_name]
+	l_name = params[:l_name]
+	age = params[:age]
+	hair = params[:hair]
+	eye = params[:eye]
+	"#{f_name} #{l_name} #{age} #{hair} #{eye}"
+end
