@@ -42,18 +42,23 @@ get '/hair_color' do
 	erb :hair_color, locals:{f_name: f_name, l_name: l_name, age: age}
 end
 
-post '/haircolor' do
+ post '/h_color' do
 	f_name = params[:f_name]
 	l_name = params[:l_name]
 	age = params[:age]
 	hair = params[:hair]
+	#{}"#{f_name} #{l_name} #{age} #{hair}"
 	redirect '/eye_color?firstname=' + f_name + "&lastname=" + l_name + "&age=" + age + "&hair=" + hair
 end
 
-# get '/eye_color' do
-# 	f_name = params[:firstname]
-# 	l_name = params[:lastname]
-# 	age = params[:age]
-# 	hair = params[:hair]
-# 	erb :eyecolor, locals:{f_name: f_name, l_name: l_name, age: age, hair:,hair}
-# end 
+get '/eye_color' do
+	f_name = params[:firstname]
+	l_name = params[:lastname]
+	age = params[:age]
+	hair = params[:hair]
+	erb :eye_color, locals:{f_name: f_name, l_name: l_name, age: age, hair: hair}
+end 
+
+post '/eyecolor' do 
+
+	end
